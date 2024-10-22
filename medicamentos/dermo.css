@@ -1,0 +1,556 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", system-ui;
+}
+
+header{
+    background-color: #ec3237;
+    position: fixed;
+    width: 100%;
+    z-index: 9998;
+}
+
+.header-conteiner{
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: space-around;
+    font-weight: 500;
+    & img{
+        width: 130px;
+        height: 100px;
+        cursor: pointer;
+    }
+}
+
+.header-outros{
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.outros{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition:  0.3s ease-in-out;
+    padding: 25px;
+    border-radius: 10px;
+   & a{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    gap: 5px;
+    
+    & p{
+        color: white;
+    }
+   }
+
+   & img{
+    width: 40px;
+    height: 40px;
+   }
+}
+
+.outros:hover{
+    background-color: #fc7277;
+}
+
+.procurar{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 500px;
+   position: relative;
+   padding: 50px;
+
+
+   & input{
+    width: 100%;
+    position: absolute;
+    padding: 10px;
+    border: 0;
+    outline: 0;
+    border-radius: 10px;
+   }
+
+
+   & i{
+    position: absolute;
+    right: 0;
+    padding: 5px;
+   }
+}
+
+.produto-cestinha{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.mais{
+    display: flex;
+    text-align: center;
+    border: 1px solid #c1c1c1;
+    gap: 3px;
+    padding: 5px;
+    width: 45%;
+    align-items: center;
+    margin-bottom: 30px;
+    justify-content: center;
+
+    & a{
+        background-color: transparent;
+        text-decoration: none;
+        color: rgb(39, 39, 39);
+        border-radius: 60%;
+        padding: 9px;
+        font-size: 12px;         
+    }
+}
+
+
+.cetinhaAberta{
+    display: flex;
+    justify-content: right;
+    position: fixed;
+    top: 0;
+    right: 1;
+    width: 100%;
+    background-color: #3c44703b;
+    z-index: 9999;
+ }
+ .cestinha{
+     display: flex;
+     padding: 8px 12px;
+     align-items: center;
+     gap: 1rem;
+     border-radius: 10px;
+     border: 0;
+     background-color: transparent;
+     cursor: pointer;
+     width: 100%;
+     height: 100%;
+     font-size: 18px;
+     font-weight: 500;
+     color: #fff;
+     
+     
+ }
+ 
+
+
+ .subtotal{
+    display: flex;
+    
+    width: 100%;
+    position: absolute;
+    top: 80%;
+    left: 0;
+    border-top: 1px #c1c1c1 solid ;
+    border-bottom: 1px #c1c1c1 solid ;
+    padding: 10px;
+
+    & .sb-conteiner{
+        display: flex;
+        gap: 35%;     
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    & a{
+        font-size: 20px;
+    }
+
+    & p{
+        font-size: 30px;
+        font-weight: 700;
+        color: #ec3237;
+    }
+ }
+
+
+
+ .cesta-icone{
+     width: 150px;
+     height: 150px;
+ }
+ 
+ .cestinha-conteiner{
+     height: 100vh;
+     width: 20%;
+     display: none;
+     border: 1px solid #cccccca1;
+     z-index: 9999;
+     flex-direction: column;
+     position: relative;
+     padding: 15px;
+     background-color: #fff;
+     opacity: 0; /* Início invisível */
+     transform: translateX(100%); /* Começa fora da tela */
+     transition: opacity 0.3s ease, transform 0.3s ease; /* Suaviza a transição */
+ }
+ 
+ .active{
+     display: flex;
+     animation: abrirCestinha 0.3s forwards;
+ }
+ 
+ .inactive {
+     animation: fecharCestinha 0.3s forwards; /* Animação ao fechar */
+ }
+ 
+ .topo-cestinha{
+     display: flex;
+     align-items: center;
+     justify-content: space-around;
+     font-size: 20px;
+     font-weight: 500;
+     
+     & button{
+         padding: 5px;
+         font-size: 12px;
+         font-weight: bold;
+         border-radius: 50%;
+         width: 30px;
+         height: 30px;
+         background-color: #ec3237;
+         border: 0;
+         color: #fff;
+         position: absolute;
+         right: 0;
+         cursor: pointer;
+     }
+ }
+.cesta-vazia{
+    display: none;
+}
+
+
+
+ .meio-cestinha{
+     display: flex;
+     align-items: center;
+
+     font-size: 20px;
+     gap: 2rem;
+    font-size: 13px;
+ 
+   
+ }
+    .finalizandocompra-conteiner{
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 90%;
+        text-align: center;
+        align-items: center;
+        width: 100%;
+
+        &  .finalizandocompra{
+            text-decoration: none;
+            text-align: center;
+            color: #fff;
+            width: 50%;
+            background-color: #ec3237;
+            padding: 15px;
+            border-radius: 20px;
+        }
+    }
+
+ 
+ 
+ @keyframes abrirCestinha {
+     from {
+         transform: translateX(100%);
+         opacity: 0;
+     }
+     to {
+         transform: translateX(0);
+         opacity: 1;
+     }
+ }
+ 
+ @keyframes fecharCestinha {
+     from {
+         transform: translateX(0);
+         opacity: 1;
+     }
+     to {
+         transform: translateX(100%);
+         opacity: 0;
+     }
+ }
+
+#navegacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 280px;
+    z-index: -1;
+}
+.navegacao-conteiner{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    & h2{
+        margin-left: 4rem;
+    }
+}
+nav{
+    margin: auto;
+}
+.navegacao-conteiner ul{
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    & a{
+        text-decoration: none;
+        color: #000;
+        transition: 0.3s ease-in-out;
+
+    }
+
+    & a:hover{
+        color: rgb(0, 255, 64);
+    }
+
+}
+.cor-infantil{
+    color: rgb(0, 255, 64);
+}
+
+#produtos-infantis{
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    margin-bottom: 130px;
+}
+
+.img-infantil{
+    display: flex;
+    justify-content: center;
+    margin: 0 0 50px 50px;
+}
+
+
+.filtros-infantis{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    & .texto-filtro-infantil{
+        color: #ec3237;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+}
+
+.marcas-filtro{
+    display: flex;
+    overflow: hidden;
+    overflow-y: scroll;
+    flex-direction: column;
+    height: 300px;
+    width: 240px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+
+
+    & .filtrar-marcas{
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        flex-direction: row-reverse;
+        justify-content: left;
+    }
+}
+
+.listaprodutos-infantis{
+    width: 59%;
+    background-color: #d8d8d8c9;
+    border-radius: 10px;
+    padding: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.filtrar-preco{
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+
+    & .precos-filtrados{
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        flex-direction: row-reverse;
+        justify-content: left;
+    }
+}
+
+.produtos-mais-vendidos{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 250px;
+    align-items: center;
+    padding: 20px;
+
+    & img{
+        width: 200px;
+        height: 200px;
+    }
+
+    & .sobreproduto{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 10px;
+        border-bottom: 1px solid #bdbdbda4;
+        margin-left: 5%;
+    }
+
+    & a{
+        text-decoration: none;
+        color: #464646;
+        width: 90%;
+        
+    }
+
+    & .preco{
+        padding: 10px;
+        font-size: 20px;
+        color: #000;
+    }
+
+    .verproduto{
+        background-color: #ec3237;
+        padding: 15px;
+        color: #fff;
+        text-align: center;
+        transition: 0.3s ease-in-out;
+        font-size: 15px;
+    }
+
+    .verproduto:hover{
+        background-color: #75171a;
+    }
+
+}
+
+
+footer{
+    height: 40vh;
+    background-color: #ec3237;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    color: #fff;
+
+    & a{
+        color: #fff;
+    }
+}
+
+.rodape-conteiner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    gap: 3rem;
+    
+    & li {
+        list-style: none;
+}
+}
+
+.social-links{
+    & li{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ @media (min-width: 1024px) and (max-width: 1280px) {
+
+    .header-outros{
+        & img{
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    .logotipo{
+        width: 130px;
+        height: 100px;
+    }
+
+
+
+
+    .img-infantil{
+        display: none;
+    }
+
+    .listaprodutos-infantis{
+        width: 56%;
+    }
+}
+
+
+@media (min-width: 1280px) and (max-width: 1440px){
+    .listaprodutos-infantis{
+        width:  65%;
+    }
+}
+
+@media (width:1440px) {
+    .listaprodutos-infantis{
+        width: 58%;
+    }
+}
